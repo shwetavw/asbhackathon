@@ -41,14 +41,14 @@ except Exception as e:
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 HEADERS = {'User-Agent': USER_AGENT}
 
-# Add error handlers
-@app.errorhandler(404)
-def not_found_error(error):
-    return jsonify({"error": "Resource not found"}), 404
+# # Add error handlers
+# @app.errorhandler(404)
+# def not_found_error(error):
+#     return jsonify({"error": "Resource not found"}), 404
 
-@app.errorhandler(500)
-def internal_error(error):
-    return jsonify({"error": "Internal server error"}), 500
+# @app.errorhandler(500)
+# def internal_error(error):
+#     return jsonify({"error": "Internal server error"}), 500
 
 
 # Rate limiting storage
@@ -248,7 +248,7 @@ def extract_fields_with_gemini(website_text, url):
     - website: (string) Main website URL
     - description: (string) Brief description of the company
     - hq_location: (string) location
-    - contact_email: (string) Contact email address
+    - contact_email: (string) email address
     - industry-sector: (string) Primary industry or sector, required if entity_type is 'social_enterprise'
     - social_status: (string) 'Yes', 'No', or 'Unknown', required if entity_type is 'social_enterprise'
     - funding_stage: (string) 'Growth', 'Pre-seed', 'Seed', 'Series A', etc., required if entity_type is 'social_enterprise'
@@ -277,8 +277,8 @@ def extract_fields_with_gemini(website_text, url):
         "entity_type": "social_enterprise",
         "website": "https://www.techinnovations.example.com",
         "description": "Leading provider of AI solutions for businesses",
-        "hq_location": "kuala lumpur, malaysia",
-        "contact_email": "hello@pichaeats.example.com",
+        "hq_location": "kuala lumpur",
+        "contact_email": "collaborate@biji-biji.com",
         "industry_sector": "Waste Management, Environmental Services",
         "social_status": "Yes",
         "funding_stage": "Growth",
